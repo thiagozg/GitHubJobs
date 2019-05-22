@@ -1,0 +1,8 @@
+<resources>
+	<string name="app_name">GitHubJobs</string>
+	<string name="app_description">This App was constructed with:\n\n- Navigation Component\n- Koin\n-Coroutine\n- GitHub API\n- Gradle Kotlin</string>
+	<string name="input_language_label">Language</string>
+	<string name="input_location_label">Location</string>
+	<string name="continue_verb">continuar</string>
+	<string name="home">Home</string>
+</resources>
