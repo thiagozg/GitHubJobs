@@ -6,13 +6,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(Version.Android.compileSdkVersion)
     defaultConfig {
-        applicationId = "br.com.thiagozg.githubjobs"
-        minSdkVersion(21)
-        targetSdkVersion(28)
-        versionCode = 1
-        versionName = "1.0"
+        Version.Android.run {
+            applicationId = appId
+            minSdkVersion(minSdk)
+            targetSdkVersion(targetSdk)
+            versionCode = code
+            versionName = name
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,17 +34,21 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.0.2")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.0.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.0.0")
-    implementation("com.google.android.material:material:1.0.0")
-    implementation("com.airbnb.android:lottie:3.0.2")
+    Dependencies.AppModule.run {
+        implementation(appCompat)
+        implementation(coreKtx)
+        implementation(constraintLayout)
+        implementation(navigationFragmentKtx)
+        implementation(navigationUiKtx)
+        implementation(materialDesign)
+        implementation(lottie)
+        implementation(legacySupportV4)
+    }
 
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    testImplementation("junit:junit:4.12")
+    testImplementation(Dependencies.UnitTests.jUnit)
 
-    androidTestImplementation("androidx.test.ext:junit:1.1.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
+    Dependencies.UiTests.run {
+        androidTestImplementation(extJUnit)
+        androidTestImplementation(espressoCore)
+    }
 }
