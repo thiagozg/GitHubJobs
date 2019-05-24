@@ -45,6 +45,15 @@ dependencies {
         implementation(legacySupportV4)
     }
 
+    Dependencies.AppModule.Network.run {
+        implementation(okhttpLogging)
+        implementation(retrofit)
+        implementation(retrofitGson)
+        implementation(coroutineCore)
+        implementation(coroutineAndroid)
+        implementation(coroutineRetrofitAdapter)
+    }
+
     testImplementation(Dependencies.UnitTests.jUnit)
 
     Dependencies.UiTests.run {

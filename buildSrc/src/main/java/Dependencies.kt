@@ -13,6 +13,27 @@ object Dependencies {
         const val materialDesign = "com.google.android.material:material:${Version.materialDesign}"
         const val lottie = "com.airbnb.android:lottie:${Version.lottie}"
         const val legacySupportV4 = "androidx.legacy:legacy-support-v4:${Version.legacySupportV4}"
+
+        object Network {
+            const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp}"
+            const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+            const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Version.retrofit}"
+
+            const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutineCore}"
+            const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutineCore}"
+            const val coroutineRetrofitAdapter = "com.jakewharton.retrofit:" +
+                    "retrofit2-kotlin-coroutines-experimental-adapter:${Version.coroutineRetrofitAdapter}"
+        }
+
+        /*
+           architecture = Group {
+        implementation "android.arch.lifecycle:viewmodel:$versions.architecture"
+        implementation "android.arch.lifecycle:livedata:$versions.architecture"
+        kapt "android.arch.lifecycle:compiler:$versions.architecture"
+        implementation "android.arch.lifecycle:extensions:$versions.architecture"
+        implementation "android.arch.lifecycle:reactivestreams:$versions.architecture"
+    }
+         */
     }
 
     object UnitTests {

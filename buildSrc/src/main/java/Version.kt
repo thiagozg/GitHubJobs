@@ -9,8 +9,14 @@ object Version {
     const val navigationFragmentKtx = "2.0.0"
     const val navigationUiKtx = "2.0.0"
     const val materialDesign = "1.0.0"
-    const val lottie = "3.0.2"
     const val legacySupportV4 = "1.0.0"
+    const val lottie = "3.0.2"
+
+    const val okHttp = "3.6.0"
+    const val retrofit = "2.5.0"
+
+    const val coroutineCore = "1.2.1"
+    const val coroutineRetrofitAdapter = "1.0.0"
 
     const val jUnit = "4.12"
     const val extJUnit = "1.1.0"
