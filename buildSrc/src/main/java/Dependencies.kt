@@ -8,8 +8,6 @@ object Dependencies {
         const val appCompat = "androidx.appcompat:appcompat:${Version.appCompat}"
         const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Version.constraintLayout}"
-        const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Version.navigationFragmentKtx}"
-        const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Version.navigationUiKtx}"
         const val materialDesign = "com.google.android.material:material:${Version.materialDesign}"
         const val lottie = "com.airbnb.android:lottie:${Version.lottie}"
         const val legacySupportV4 = "androidx.legacy:legacy-support-v4:${Version.legacySupportV4}"
@@ -25,15 +23,15 @@ object Dependencies {
                     "retrofit2-kotlin-coroutines-experimental-adapter:${Version.coroutineRetrofitAdapter}"
         }
 
-        /*
-           architecture = Group {
-        implementation "android.arch.lifecycle:viewmodel:$versions.architecture"
-        implementation "android.arch.lifecycle:livedata:$versions.architecture"
-        kapt "android.arch.lifecycle:compiler:$versions.architecture"
-        implementation "android.arch.lifecycle:extensions:$versions.architecture"
-        implementation "android.arch.lifecycle:reactivestreams:$versions.architecture"
-    }
-         */
+        object Architecture {
+            const val navigationKtx = "androidx.navigation:navigation-fragment-ktx:${Version.navigationFragmentKtx}"
+            const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Version.navigationUiKtx}"
+            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:${Version.architecture}"
+            const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.architecture}"
+            const val liveDataCore = "androidx.lifecycle:lifecycle-livedata-core:${Version.architecture}"
+            const val liveData = "androidx.lifecycle:lifecycle-livedata:${Version.architecture}"
+            const val liveDataCompiler = "android.arch.lifecycle:compiler:${Version.architecture}"
+        }
     }
 
     object UnitTests {

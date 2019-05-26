@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
     id("androidx.navigation.safeargs")
 }
 
@@ -38,8 +39,6 @@ dependencies {
         implementation(appCompat)
         implementation(coreKtx)
         implementation(constraintLayout)
-        implementation(navigationFragmentKtx)
-        implementation(navigationUiKtx)
         implementation(materialDesign)
         implementation(lottie)
         implementation(legacySupportV4)
@@ -52,6 +51,14 @@ dependencies {
         implementation(coroutineCore)
         implementation(coroutineAndroid)
         implementation(coroutineRetrofitAdapter)
+    }
+
+    Dependencies.AppModule.Architecture.run {
+        implementation(navigationKtx)
+        implementation(navigationUiKtx)
+        implementation(viewModel)
+        implementation(viewModelKtx)
+        implementation(liveDataCore)
     }
 
     testImplementation(Dependencies.UnitTests.jUnit)

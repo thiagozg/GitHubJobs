@@ -6,11 +6,13 @@ object Version {
     const val appCompat = "1.0.2"
     const val coreKtx = "1.0.2"
     const val constraintLayout = "1.1.3"
-    const val navigationFragmentKtx = "2.0.0"
-    const val navigationUiKtx = "2.0.0"
     const val materialDesign = "1.0.0"
     const val legacySupportV4 = "1.0.0"
     const val lottie = "3.0.2"
+
+    const val navigationFragmentKtx = "2.0.0"
+    const val navigationUiKtx = "2.0.0"
+    const val architecture = "2.0.0"
 
     const val okHttp = "3.6.0"
     const val retrofit = "2.5.0"
