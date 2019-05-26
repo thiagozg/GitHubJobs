@@ -1,7 +1,6 @@
 package br.com.thiagozg.githubjobs.domain
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
 /*
  * Created by Thiago Zagui Giacomini on 20/05/2019.

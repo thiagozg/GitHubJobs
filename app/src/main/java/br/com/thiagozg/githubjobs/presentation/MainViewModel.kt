@@ -13,7 +13,7 @@ import kotlinx.coroutines.SupervisorJob
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-class MainViewModel : ViewModel() {
+class MainViewModel private constructor() : ViewModel() {
 
     val jobsData = MutableLiveData<JobsVO>()
 
@@ -31,8 +31,9 @@ class MainViewModel : ViewModel() {
     companion object {
         private lateinit var repository: GitHubRepository
 
-        fun providesViewModel(application: Application) {
+        fun providesViewModel(application: Application): MainViewModel {
             repository = GitHubRepository(application)
+            return MainViewModel()
         }
     }
 
