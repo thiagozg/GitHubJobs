@@ -18,7 +18,7 @@ object Version {
     const val retrofit = "2.5.0"
 
     const val coroutineCore = "1.2.1"
-    const val coroutineRetrofitAdapter = "1.0.0"
+    const val coroutineRetrofitAdapter = "0.9.2"
 
     const val jUnit = "4.12"
     const val extJUnit = "1.1.0"

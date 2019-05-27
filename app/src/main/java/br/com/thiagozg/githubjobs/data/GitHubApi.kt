@@ -15,5 +15,5 @@ interface GitHubApi {
     fun fethJobs(
         @Query("description") language: String?,
         @Query("location") location: String?
-    ): Deferred<JobsVO>
+    ): Deferred<List<JobsVO>>
 }

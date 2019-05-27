@@ -17,11 +17,10 @@ import kotlinx.android.synthetic.main.fragment_input_location.*
 class InputLocationFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_input_location, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_input_location, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,5 +34,4 @@ class InputLocationFragment : Fragment() {
             Navigation.findNavController(buttonView).navigate(nextAction)
         }
     }
-
 }

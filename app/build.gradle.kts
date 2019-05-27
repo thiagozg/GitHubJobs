@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -28,7 +30,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     androidExtensions {
-        isExperimental = true
+        configure(delegateClosureOf<AndroidExtensionsExtension> {
+            isExperimental = true
+        })
     }
 }
 

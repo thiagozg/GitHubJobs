@@ -19,8 +19,7 @@ object Dependencies {
 
             const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutineCore}"
             const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutineCore}"
-            const val coroutineRetrofitAdapter = "com.jakewharton.retrofit:" +
-                    "retrofit2-kotlin-coroutines-experimental-adapter:${Version.coroutineRetrofitAdapter}"
+            const val coroutineRetrofitAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Version.coroutineRetrofitAdapter}"
         }
 
         object Architecture {

@@ -18,15 +18,17 @@ class GitHubRepository(application: Application) {
 
     fun fetchJobs(
         inputQueryDTO: InputQueryDTO,
-        jobsData: MutableLiveData<JobsVO>,
+        jobsData: MutableLiveData<List<JobsVO>>,
         viewModelJob: CompletableJob
     ) {
         val uiScope = Dispatchers.Main + viewModelJob
         GlobalScope.launch(uiScope) {
             withContext(Dispatchers.Default) {
-                jobsData.value = inputQueryDTO.run {
-                    gitHubApi.fethJobs(language, location)
-                }.await()
+                jobsData.postValue(
+                    inputQueryDTO.run {
+                        gitHubApi.fethJobs(language, location)
+                    }.await()
+                )
             }
         }
     }

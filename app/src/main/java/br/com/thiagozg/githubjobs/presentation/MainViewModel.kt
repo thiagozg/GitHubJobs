@@ -15,7 +15,7 @@ import kotlinx.coroutines.SupervisorJob
  */
 class MainViewModel private constructor() : ViewModel() {
 
-    val jobsData = MutableLiveData<JobsVO>()
+    val jobsData = MutableLiveData<List<JobsVO>>()
 
     private val viewModelJob = SupervisorJob()
 
