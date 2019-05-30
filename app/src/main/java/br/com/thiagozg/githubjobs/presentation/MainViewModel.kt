@@ -1,12 +1,11 @@
 package br.com.thiagozg.githubjobs.presentation
 
 import android.app.Application
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.thiagozg.domain.api.StateResponse
 import br.com.thiagozg.githubjobs.data.GitHubRepository
-import br.com.thiagozg.githubjobs.domain.InputQueryDTO
-import br.com.thiagozg.githubjobs.domain.JobsVO
+import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import kotlinx.coroutines.SupervisorJob
 
 /*
@@ -15,7 +14,7 @@ import kotlinx.coroutines.SupervisorJob
  */
 class MainViewModel private constructor() : ViewModel() {
 
-    val jobsData = MutableLiveData<List<JobsVO>>()
+    val jobsData = MutableLiveData<StateResponse>()
 
     private val viewModelJob = SupervisorJob()
 
@@ -36,5 +35,4 @@ class MainViewModel private constructor() : ViewModel() {
             return MainViewModel()
         }
     }
-
 }

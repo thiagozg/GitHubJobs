@@ -1,9 +1,15 @@
-package br.com.thiagozg.githubjobs.domain
+package br.com.thiagozg.githubjobs.domain.api.fetchjobs
 
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-data class JobsVO(
+/*
+ * Created by Thiago Zagui Giacomini on 24/05/2019.
+ * See thiagozg on GitHub: https://github.com/thiagozg
+ */
+@Parcelize
+class JobVO(
     @SerializedName("company")
     val company: String,
     @SerializedName("company_logo")
@@ -26,4 +32,7 @@ data class JobsVO(
     val type: String,
     @SerializedName("url")
     val url: String
-)
+) : Parcelable
+
+@Parcelize
+class JobsListVO(val jobsVO: List<JobVO>) : ArrayList<JobVO>(jobsVO), Parcelable

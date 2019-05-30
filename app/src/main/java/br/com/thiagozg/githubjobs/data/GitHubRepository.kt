@@ -1,12 +1,15 @@
 package br.com.thiagozg.githubjobs.data
 
 import android.app.Application
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import br.com.thiagozg.domain.api.StateError
+import br.com.thiagozg.domain.api.StateResponse
+import br.com.thiagozg.domain.api.StateSuccess
+import br.com.thiagozg.domain.api.coroutineIoUi
 import br.com.thiagozg.githubjobs.di.GitHubApiProvider
-import br.com.thiagozg.githubjobs.domain.InputQueryDTO
-import br.com.thiagozg.githubjobs.domain.JobsVO
-import kotlinx.coroutines.*
+import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
+import kotlinx.coroutines.CompletableJob
+import kotlinx.coroutines.Dispatchers
 
 /*
  * Created by Thiago Zagui Giacomini on 24/05/2019.
@@ -18,18 +21,18 @@ class GitHubRepository(application: Application) {
 
     fun fetchJobs(
         inputQueryDTO: InputQueryDTO,
-        jobsData: MutableLiveData<List<JobsVO>>,
+        jobsListData: MutableLiveData<StateResponse>,
         viewModelJob: CompletableJob
     ) {
         val uiScope = Dispatchers.Main + viewModelJob
-        GlobalScope.launch(uiScope) {
-            withContext(Dispatchers.Default) {
-                jobsData.postValue(
-                    inputQueryDTO.run {
-                        gitHubApi.fethJobs(language, location)
-                    }.await()
-                )
+        coroutineIoUi(uiScope, {
+            inputQueryDTO.run {
+                gitHubApi.fethJobs(language, location)
             }
-        }
+        }, {
+            jobsListData.postValue(StateSuccess(it))
+        }, {
+            jobsListData.postValue(StateError(it))
+        })
     }
 }

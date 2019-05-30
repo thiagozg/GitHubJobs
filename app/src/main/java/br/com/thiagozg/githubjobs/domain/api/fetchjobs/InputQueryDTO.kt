@@ -1,4 +1,4 @@
-package br.com.thiagozg.githubjobs.domain
+package br.com.thiagozg.githubjobs.domain.api.fetchjobs
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

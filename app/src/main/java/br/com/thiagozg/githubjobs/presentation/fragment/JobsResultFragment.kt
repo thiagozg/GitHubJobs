@@ -40,12 +40,4 @@ class JobsResultFragment : Fragment() {
         } ?: InputQueryDTO()
         viewModel.fetchJobs(inputQueryDTO)
     }
-
-    private fun observeJobsData() {
-        viewModel.jobsData.observe(this, Observer { jobsVO ->
-            jobsVO?.let {
-                Log.d("HUE", it.toString())
-            }
-        })
-    }
 }
