@@ -1,13 +1,13 @@
-package br.com.thiagozg.githubjobs.presentation
+package br.com.thiagozg.githubjobs.presentation.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.domain.InputQueryDTO
+import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import kotlinx.android.synthetic.main.fragment_input_language.*
 
 /*
@@ -25,10 +25,13 @@ class InputLanguageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btContinue.setOnClickListener {
-            val inputQueryDTO = InputQueryDTO(language = tietLanguage.text.toString())
-            val nextAction = InputLanguageFragmentDirections.actionToLocationFragment(inputQueryDTO)
+            val inputQueryDTO = InputQueryDTO(
+                language = tietLanguage.text.toString())
+            val nextAction =
+                InputLanguageFragmentDirections.actionToLocationFragment(
+                    inputQueryDTO
+                )
             Navigation.findNavController(it).navigate(nextAction)
         }
     }
-
 }

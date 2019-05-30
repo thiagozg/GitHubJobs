@@ -4,8 +4,11 @@
 						xmlns:tools="http://schemas.android.com/tools" android:id="@+id/graph"
 						app:startDestination="@id/input_language">
 	
-	<fragment android:id="@+id/input_language" android:name="br.com.thiagozg.githubjobs.presentation.InputLanguageFragment"
-						android:label="fragment_input_language" tools:layout="@layout/fragment_input_language">
+	<fragment
+		android:id="@+id/input_language"
+		android:name="br.com.thiagozg.githubjobs.presentation.fragment.InputLanguageFragment"
+		tools:layout="@layout/fragment_input_language"
+		>
 		<action
 			android:id="@+id/actionToLocationFragment"
 			app:destination="@id/input_location"
@@ -16,19 +19,32 @@
 			app:launchSingleTop="true"
 			/>
 	</fragment>
-	<fragment android:id="@+id/input_location" android:name="br.com.thiagozg.githubjobs.presentation.InputLocationFragment"
-						android:label="fragment_input_location" tools:layout="@layout/fragment_input_location">
-		<action android:id="@+id/actionToJobsResultFragment" app:destination="@id/jobs_result"/>
+	<fragment
+		android:id="@+id/input_location"
+		android:name="br.com.thiagozg.githubjobs.presentation.fragment.InputLocationFragment"
+		tools:layout="@layout/fragment_input_location"
+		>
+		<action
+			android:id="@+id/actionToJobsResultFragment"
+			app:destination="@id/jobs_result"
+			app:enterAnim="@anim/nav_default_enter_anim"
+			app:exitAnim="@anim/nav_default_exit_anim"
+			app:popUpTo="@id/input_language"
+			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			/>
 		<argument
 			android:name="InputQueryDTO"
-			app:argType="br.com.thiagozg.githubjobs.domain.InputQueryDTO"
+			app:argType="br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO"
 			/>
 	</fragment>
-	<fragment android:id="@+id/jobs_result" android:name="br.com.thiagozg.githubjobs.presentation.JobsResultFragment"
-						android:label="JobsResultFragment">
+	<fragment
+		android:id="@+id/jobs_result"
+		android:name="br.com.thiagozg.githubjobs.presentation.fragment.JobsResultFragment"
+		>
 		<argument
-			android:name="InputQueryDTO"
-			app:argType="br.com.thiagozg.githubjobs.domain.InputQueryDTO"
+			android:name="jobsListVO"
+			app:argType="br.com.thiagozg.githubjobs.domain.api.fetchjobs.JobsListVO"
 			/>
 	</fragment>
 </navigation>
