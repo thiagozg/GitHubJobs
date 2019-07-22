@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.data.StateError
 import br.com.thiagozg.githubjobs.data.StateSuccess
-import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
-import br.com.thiagozg.githubjobs.domain.api.fetchjobs.JobVO
-import br.com.thiagozg.githubjobs.domain.api.fetchjobs.JobsListVO
+import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
+import br.com.thiagozg.githubjobs.data.model.JobVO
+import br.com.thiagozg.githubjobs.data.model.JobsListVO
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_input_location.*

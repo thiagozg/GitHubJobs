@@ -2,8 +2,8 @@ package br.com.thiagozg.githubjobs.data
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
 import br.com.thiagozg.githubjobs.di.GitHubApiProvider
-import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import kotlinx.coroutines.CompletableJob
 import kotlinx.coroutines.Dispatchers
 

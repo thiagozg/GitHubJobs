@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
+import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
 import kotlinx.android.synthetic.main.fragment_input_language.*
 
 /*
