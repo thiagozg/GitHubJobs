@@ -1,6 +1,6 @@
 package br.com.thiagozg.githubjobs.data
 
-import br.com.thiagozg.githubjobs.data.model.JobVO
+import br.com.thiagozg.githubjobs.data.model.JobDTO
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,5 +16,5 @@ interface GitHubApi {
     fun fethJobs(
         @Query("description") language: String?,
         @Query("location") location: String?
-    ): Deferred<Response<List<JobVO>>>
+    ): Deferred<Response<List<JobDTO>>>
 }

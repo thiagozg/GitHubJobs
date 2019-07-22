@@ -2,6 +2,7 @@ package br.com.thiagozg.githubjobs.di
 
 import br.com.thiagozg.githubjobs.data.GitHubRepository
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
+import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultAdapter
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -16,4 +17,6 @@ val mainModule = module {
     single { GitHubRepository(get()) }
 
     factory { MainViewModel(get()) }
+
+    factory { JobsResultAdapter() }
 }

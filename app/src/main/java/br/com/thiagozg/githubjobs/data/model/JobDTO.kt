@@ -1,15 +1,12 @@
 package br.com.thiagozg.githubjobs.data.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 /*
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-@Parcelize
-class JobVO(
+class JobDTO(
     @SerializedName("company")
     val company: String,
     @SerializedName("company_logo")
@@ -32,7 +29,4 @@ class JobVO(
     val type: String,
     @SerializedName("url")
     val url: String
-) : Parcelable
-
-@Parcelize
-class JobsListVO(val jobsVO: List<JobVO>) : ArrayList<JobVO>(jobsVO), Parcelable
+)

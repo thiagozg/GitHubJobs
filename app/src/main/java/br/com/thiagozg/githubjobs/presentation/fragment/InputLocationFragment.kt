@@ -11,8 +11,6 @@ import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.data.StateError
 import br.com.thiagozg.githubjobs.data.StateSuccess
 import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
-import br.com.thiagozg.githubjobs.data.model.JobVO
-import br.com.thiagozg.githubjobs.data.model.JobsListVO
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_input_location.*
@@ -54,16 +52,15 @@ class InputLocationFragment : Fragment() {
     private fun observeJobsData() {
         viewModel.jobsData.observe(this, Observer { stateResponse ->
             when (stateResponse) {
-                is StateSuccess<*> -> showJobsList(stateResponse.data as? List<JobVO> ?: listOf())
+                is StateSuccess<*> -> showJobsList()
                 is StateError -> showSnackbarError()
             }
         })
     }
 
-    private fun showJobsList(jobsVO: List<JobVO>) {
-        val jobsListVO = JobsListVO(jobsVO)
+    private fun showJobsList() {
         val nextAction =
-            InputLocationFragmentDirections.actionToJobsResultFragment(jobsListVO)
+            InputLocationFragmentDirections.actionToJobsResultFragment()
         findNavController().navigate(nextAction)
     }
 

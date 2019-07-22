@@ -41,10 +41,5 @@
 	<fragment
 		android:id="@+id/jobs_result"
 		android:name="br.com.thiagozg.githubjobs.presentation.fragment.JobsResultFragment"
-		>
-		<argument
-			android:name="jobsListVO"
-			app:argType="br.com.thiagozg.githubjobs.data.model.JobsListVO"
-			/>
-	</fragment>
+		/>
 </navigation>
