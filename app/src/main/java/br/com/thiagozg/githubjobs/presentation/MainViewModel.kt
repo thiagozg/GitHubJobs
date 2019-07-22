@@ -3,7 +3,7 @@ package br.com.thiagozg.githubjobs.presentation
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.thiagozg.domain.api.StateResponse
+import br.com.thiagozg.githubjobs.data.StateResponse
 import br.com.thiagozg.githubjobs.data.GitHubRepository
 import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import kotlinx.coroutines.SupervisorJob

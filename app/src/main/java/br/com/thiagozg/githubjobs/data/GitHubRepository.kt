@@ -2,10 +2,6 @@ package br.com.thiagozg.githubjobs.data
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import br.com.thiagozg.domain.api.StateError
-import br.com.thiagozg.domain.api.StateResponse
-import br.com.thiagozg.domain.api.StateSuccess
-import br.com.thiagozg.domain.api.coroutineIoUi
 import br.com.thiagozg.githubjobs.di.GitHubApiProvider
 import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import kotlinx.coroutines.CompletableJob

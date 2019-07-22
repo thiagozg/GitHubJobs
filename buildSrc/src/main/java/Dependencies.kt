@@ -31,6 +31,13 @@ object Dependencies {
             const val liveData = "androidx.lifecycle:lifecycle-livedata:${Version.architecture}"
             const val liveDataCompiler = "android.arch.lifecycle:compiler:${Version.architecture}"
         }
+
+        object Koin {
+            const val core = "org.koin:koin-core:${Version.koin}"
+            const val android = "org.koin:koin-android:${Version.koin}"
+            const val androidScope = "org.koin:koin-androidx-scope:${Version.koin}"
+            const val androidViewModel = "org.koin:koin-androidx-viewmodel:${Version.koin}"
+        }
     }
 
     object UnitTests {

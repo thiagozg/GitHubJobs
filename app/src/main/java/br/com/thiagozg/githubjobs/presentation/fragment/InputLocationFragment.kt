@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import br.com.thiagozg.domain.api.StateError
-import br.com.thiagozg.domain.api.StateSuccess
+import br.com.thiagozg.githubjobs.data.StateError
+import br.com.thiagozg.githubjobs.data.StateSuccess
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.domain.api.fetchjobs.InputQueryDTO
 import br.com.thiagozg.githubjobs.domain.api.fetchjobs.JobVO

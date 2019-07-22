@@ -1,4 +1,4 @@
-package br.com.thiagozg.domain.api
+package br.com.thiagozg.githubjobs.data
 
 import com.google.gson.JsonParseException
 import kotlinx.coroutines.*

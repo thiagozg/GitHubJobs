@@ -1,4 +1,4 @@
-package br.com.thiagozg.githubjobs.domain.api.fetchjobs
+package br.com.thiagozg.githubjobs.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

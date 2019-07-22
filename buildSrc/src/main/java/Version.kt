@@ -20,6 +20,8 @@ object Version {
     const val coroutineCore = "1.2.1"
     const val coroutineRetrofitAdapter = "0.9.2"
 
+    const val koin = "2.0.1"
+
     const val jUnit = "4.12"
     const val extJUnit = "1.1.0"
 

@@ -1,4 +1,4 @@
-package br.com.thiagozg.domain.api
+package br.com.thiagozg.githubjobs.data
 
 /*
  * Created by Thiago Zagui Giacomini on 29/05/2019.

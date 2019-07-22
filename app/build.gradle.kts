@@ -64,6 +64,13 @@ dependencies {
         implementation(liveDataCore)
     }
 
+    Dependencies.AppModule.Koin.run {
+        implementation(core)
+        implementation(android)
+        implementation(androidScope)
+        implementation(androidViewModel)
+    }
+
     testImplementation(Dependencies.UnitTests.jUnit)
 
     Dependencies.UiTests.run {
