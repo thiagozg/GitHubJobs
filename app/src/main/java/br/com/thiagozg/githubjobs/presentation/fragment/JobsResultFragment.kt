@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout.VERTICAL
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.thiagozg.githubjobs.R
@@ -40,13 +41,18 @@ class JobsResultFragment : Fragment(), JobsResultListener {
             rvJobsResults.run {
                 layoutManager = LinearLayoutManager(requireContext())
                 addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
-                jobsResultAdapter.addItems(it.data)
+                jobsResultAdapter.run {
+                    addItems(it.data)
+                    setListener(this@JobsResultFragment)
+                }
                 adapter = jobsResultAdapter
             }
         }
     }
 
     override fun onClick(jobDTO: JobDTO) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val nextAction =
+            JobsResultFragmentDirections.actionJobsResultToJobDetails(jobDTO)
+        findNavController().navigate(nextAction)
     }
 }

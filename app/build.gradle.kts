@@ -1,3 +1,4 @@
+
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 
 plugins {
@@ -40,11 +41,12 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     Dependencies.AppModule.run {
         implementation(appCompat)
+        implementation(legacySupportV4)
         implementation(coreKtx)
         implementation(constraintLayout)
         implementation(materialDesign)
         implementation(lottie)
-        implementation(legacySupportV4)
+        implementation(glide)
     }
 
     Dependencies.AppModule.Network.run {

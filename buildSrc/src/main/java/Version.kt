@@ -9,6 +9,7 @@ object Version {
     const val materialDesign = "1.0.0"
     const val legacySupportV4 = "1.0.0"
     const val lottie = "3.0.2"
+    const val glide = "4.9.0"
 
     const val navigationFragmentKtx = "2.0.0"
     const val navigationUiKtx = "2.0.0"

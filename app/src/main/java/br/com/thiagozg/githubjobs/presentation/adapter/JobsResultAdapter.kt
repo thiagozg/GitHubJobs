@@ -8,6 +8,7 @@ import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.RecyclerView
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.data.model.JobDTO
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_job_result.view.*
 
 /*
@@ -35,20 +36,37 @@ class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder
         notifyDataSetChanged()
     }
 
+    fun setListener(listener: JobsResultListener) {
+        this.listener = listener
+    }
+
     inner class JobResultHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(jobDTO: JobDTO) {
-            with(itemView) {
-                tvTitle.text = jobDTO.title
-                tvCompanyName.text = jobDTO.company
-                tvCompanyLocation.text = jobDTO.location
-                // TODO GLIDE => ivCompanyLogo
-                setScaleAnimation(this)
-                setOnClickListener { listener?.onClick(jobDTO) }
+        fun bind(jobDTO: JobDTO) = with(itemView) {
+            val companyLabel = resources.getString(R.string.company, jobDTO.company)
+            tvTitle.text = jobDTO.title
+            tvCompanyName.text = companyLabel
+            tvCompanyLocation.text = jobDTO.location
+            bindImageView(companyLabel, jobDTO)
+            setScaleAnimation()
+            setOnClickListener { listener?.onClick(jobDTO) }
+        }
+
+        private fun View.bindImageView(
+            companyLabel: String,
+            jobDTO: JobDTO
+        ) {
+            ivCompanyLogo.run {
+                contentDescription = companyLabel
+                Glide.with(this)
+                    .load(jobDTO.companyLogo)
+                    .centerCrop()
+                    .placeholder(R.color.primaryLight)
+                    .into(this)
             }
         }
 
-        private fun setScaleAnimation(view: View) {
+        private fun View.setScaleAnimation() {
             val anim = ScaleAnimation(
                 0.0F,
                 1.0F,
@@ -59,7 +77,7 @@ class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder
                 Animation.RELATIVE_TO_SELF,
                 PIVOT_VALUE
             ).also { it.duration = FADE_DURATION }
-            view.startAnimation(anim)
+            startAnimation(anim)
         }
     }
 

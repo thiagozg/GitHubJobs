@@ -7,4 +7,5 @@
 	<string name="home">Home</string>
 	<string name="error_api_message">unknown error, please try again later.</string>
 	<string name="title_jobs_results">Jobs Results</string>
+	<string name="company">Company %s</string>
 </resources>

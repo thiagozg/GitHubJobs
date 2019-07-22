@@ -41,5 +41,24 @@
 	<fragment
 		android:id="@+id/jobs_result"
 		android:name="br.com.thiagozg.githubjobs.presentation.fragment.JobsResultFragment"
-		/>
+		>
+		<action
+			android:id="@+id/action_jobs_result_to_job_details"
+			app:destination="@id/job_details"
+			app:enterAnim="@anim/nav_default_enter_anim"
+			app:exitAnim="@anim/nav_default_exit_anim"
+			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:popUpTo="@+id/jobs_result"
+			/>
+	</fragment>
+	<fragment
+		android:id="@+id/job_details"
+		android:name="br.com.thiagozg.githubjobs.presentation.fragment.JobDetailsFragment"
+		>
+		<argument
+			android:name="JobDetails"
+			app:argType="br.com.thiagozg.githubjobs.data.model.JobDTO"
+			/>
+	</fragment>
 </navigation>

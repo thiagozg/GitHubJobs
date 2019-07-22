@@ -11,6 +11,7 @@ object Dependencies {
         const val materialDesign = "com.google.android.material:material:${Version.materialDesign}"
         const val lottie = "com.airbnb.android:lottie:${Version.lottie}"
         const val legacySupportV4 = "androidx.legacy:legacy-support-v4:${Version.legacySupportV4}"
+        const val glide = "com.github.bumptech.glide:glide:${Version.glide}"
 
         object Network {
             const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Version.okHttp}"
