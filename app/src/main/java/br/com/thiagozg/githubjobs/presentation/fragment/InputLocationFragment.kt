@@ -16,7 +16,7 @@ import br.com.thiagozg.githubjobs.data.model.JobsListVO
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_input_location.*
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 /*
  * Created by Thiago Zagui Giacomini on 20/05/2019.
@@ -24,7 +24,7 @@ import org.koin.android.ext.android.inject
  */
 class InputLocationFragment : Fragment() {
 
-    private val viewModel: MainViewModel by inject()
+    private val viewModel by sharedViewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -11,7 +11,9 @@ import org.koin.dsl.module
  */
 val mainModule = module {
 
-    single { GitHubRepository(androidApplication()) }
+    single { GitHubApiProvider.buildServiceApi(androidApplication()) }
+
+    single { GitHubRepository(get()) }
 
     factory { MainViewModel(get()) }
 }

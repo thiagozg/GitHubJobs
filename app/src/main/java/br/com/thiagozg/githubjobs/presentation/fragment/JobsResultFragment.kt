@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 /*
  * Created by Thiago Zagui Giacomini on 20/05/2019.
@@ -15,7 +15,7 @@ import org.koin.android.ext.android.inject
  */
 class JobsResultFragment : Fragment() {
 
-    private val viewModel: MainViewModel by inject()
+    private val viewModel by sharedViewModel<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +25,6 @@ class JobsResultFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // TODO: create list and add observer to details
+        viewModel.jobsData
     }
 }

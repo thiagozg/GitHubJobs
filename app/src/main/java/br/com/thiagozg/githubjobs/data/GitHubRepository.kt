@@ -1,9 +1,7 @@
 package br.com.thiagozg.githubjobs.data
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
-import br.com.thiagozg.githubjobs.di.GitHubApiProvider
 import kotlinx.coroutines.CompletableJob
 import kotlinx.coroutines.Dispatchers
 
@@ -11,9 +9,7 @@ import kotlinx.coroutines.Dispatchers
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-class GitHubRepository(application: Application) {
-
-    private val gitHubApi = GitHubApiProvider.buildServiceApi(application)
+class GitHubRepository(private val gitHubApi: GitHubApi) {
 
     fun fetchJobs(
         inputQueryDTO: InputQueryDTO,
