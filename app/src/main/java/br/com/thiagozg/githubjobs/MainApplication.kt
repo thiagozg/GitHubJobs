@@ -1,6 +1,7 @@
 package br.com.thiagozg.githubjobs
 
 import android.app.Application
+import br.com.thiagozg.githubjobs.di.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,8 +17,7 @@ class MainApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
-            // declare modules to use
-            // modules(module1, module2 ...)
+            modules(mainModule)
         }
     }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
+import org.koin.android.ext.android.inject
 
 /*
  * Created by Thiago Zagui Giacomini on 20/05/2019.
@@ -14,13 +15,7 @@ import br.com.thiagozg.githubjobs.presentation.MainViewModel
  */
 class JobsResultFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = MainViewModel.providesViewModel(
-            requireActivity().application)
-    }
+    private val viewModel: MainViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
