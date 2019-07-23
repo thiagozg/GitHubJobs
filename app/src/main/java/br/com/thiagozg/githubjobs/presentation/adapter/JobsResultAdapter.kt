@@ -8,7 +8,7 @@ import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.RecyclerView
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.data.model.JobDTO
-import com.bumptech.glide.Glide
+import br.com.thiagozg.githubjobs.presentation.bindImageView
 import kotlinx.android.synthetic.main.item_job_result.view.*
 
 /*
@@ -47,23 +47,9 @@ class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder
             tvTitle.text = jobDTO.title
             tvCompanyName.text = companyLabel
             tvCompanyLocation.text = jobDTO.location
-            bindImageView(companyLabel, jobDTO)
+            ivCompanyLogo.bindImageView(companyLabel, jobDTO.companyLogo)
             setScaleAnimation()
             setOnClickListener { listener?.onClick(jobDTO) }
-        }
-
-        private fun View.bindImageView(
-            companyLabel: String,
-            jobDTO: JobDTO
-        ) {
-            ivCompanyLogo.run {
-                contentDescription = companyLabel
-                Glide.with(this)
-                    .load(jobDTO.companyLogo)
-                    .centerCrop()
-                    .placeholder(R.color.primaryLight)
-                    .into(this)
-            }
         }
 
         private fun View.setScaleAnimation() {

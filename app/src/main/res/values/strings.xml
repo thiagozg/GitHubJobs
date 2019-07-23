@@ -8,4 +8,7 @@
 	<string name="error_api_message">unknown error, please try again later.</string>
 	<string name="title_jobs_results">Jobs Results</string>
 	<string name="company">Company %s</string>
+	<string name="created_at">Created at %s</string>
+	<string name="how_to_apply">How to apply: %s</string>
+	<string name="description">Description:</string>
 </resources>

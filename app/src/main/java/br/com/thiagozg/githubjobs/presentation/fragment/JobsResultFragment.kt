@@ -34,8 +34,8 @@ class JobsResultFragment : Fragment(), JobsResultListener {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_jobs_result, container, false)
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val jobsResultList = viewModel.jobsData.value as? StateSuccess<List<JobDTO>>
         jobsResultList?.let {
             rvJobsResults.run {
