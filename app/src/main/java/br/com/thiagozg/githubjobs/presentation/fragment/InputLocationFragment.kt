@@ -23,6 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class InputLocationFragment : Fragment() {
 
     private val viewModel by sharedViewModel<MainViewModel>()
+    private var hasClickedOnContinue = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class InputLocationFragment : Fragment() {
     }
 
     private fun onContinueClick() {
+        hasClickedOnContinue = true
         val inputQueryDTO = arguments?.let {
             InputLocationFragmentArgs.fromBundle(it).inputQueryDTO
         }?.also {
@@ -59,9 +61,11 @@ class InputLocationFragment : Fragment() {
     }
 
     private fun showJobsList() {
-        val nextAction =
-            InputLocationFragmentDirections.actionToJobsResultFragment()
-        findNavController().navigate(nextAction)
+        if (hasClickedOnContinue) {
+            val nextAction =
+                InputLocationFragmentDirections.actionToJobsResultFragment()
+            findNavController().navigate(nextAction)
+        }
     }
 
     private fun showSnackbarError() {

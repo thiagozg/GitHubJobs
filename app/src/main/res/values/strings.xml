@@ -11,4 +11,9 @@
 	<string name="created_at">Created at %s</string>
 	<string name="how_to_apply">How to apply: %s</string>
 	<string name="description">Description:</string>
+	
+	<string name="transition_image">transition_image</string>
+	<string name="transition_title">transition_title</string>
+	<string name="transition_company_name">transition_company_name</string>
+	<string name="transition_location">transition_location</string>
 </resources>

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import br.com.thiagozg.githubjobs.R
 import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
 import kotlinx.android.synthetic.main.fragment_input_language.*
@@ -31,7 +31,7 @@ class InputLanguageFragment : Fragment() {
                 InputLanguageFragmentDirections.actionToLocationFragment(
                     inputQueryDTO
                 )
-            Navigation.findNavController(it).navigate(nextAction)
+            findNavController().navigate(nextAction)
         }
     }
 }

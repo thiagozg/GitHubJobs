@@ -12,11 +12,12 @@
 		<action
 			android:id="@+id/actionToLocationFragment"
 			app:destination="@id/input_location"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
 			app:launchSingleTop="true"
+			app:popUpTo="@+id/input_language"
 			/>
 	</fragment>
 	<fragment
@@ -27,11 +28,11 @@
 		<action
 			android:id="@+id/actionToJobsResultFragment"
 			app:destination="@id/jobs_result"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:popUpTo="@id/input_language"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popUpTo="@+id/input_location"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
 			/>
 		<argument
 			android:name="InputQueryDTO"
@@ -45,7 +46,11 @@
 		<action
 			android:id="@+id/action_jobs_result_to_job_details"
 			app:destination="@id/job_details"
-			app:popUpTo="@id/input_location"
+			app:popUpTo="@+id/jobs_result"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
 			/>
 	</fragment>
 	<fragment
