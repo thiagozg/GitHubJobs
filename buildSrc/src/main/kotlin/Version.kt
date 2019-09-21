@@ -1,6 +1,6 @@
 /*
  * Created by Thiago Zagui Giacomini on 21/05/2019.
- * See thiagozg on GitHub = " https = "//github.com/thiagozg
+ * See thiagozg on GitHub: https://github.com/thiagozg
  */
 object Version {
     const val appCompat = "1.0.2"
@@ -13,6 +13,7 @@ object Version {
 
     const val navigationFragmentKtx = "2.0.0"
     const val navigationUiKtx = "2.0.0"
+    const val navigationSafeArgs = "1.0.0"
     const val architecture = "2.0.0"
 
     const val okHttp = "3.6.0"
@@ -36,4 +37,7 @@ object Version {
         const val code = 1
         const val name = "1.0.0"
     }
+
+    const val gradleAndroid = "3.5.0"
+    const val kotlin = "1.3.41"
 }

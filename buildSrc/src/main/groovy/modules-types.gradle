@@ -1,0 +1,11 @@
+// Regular App; Tablet, Wear, TV and Android Things App Module
+// apply plugin: 'com.android.application'
+
+// Library, Feature Module
+// apply plugin: 'com.android.library'
+
+// Dynamic Feature (on demand), Instant App
+// apply plugin: 'com.android.dynamic-feature'
+
+// Regular Java Library
+// apply plugin: 'java-library'

@@ -1,3 +1,5 @@
+package dependencies
+
 /*
  * Created by Thiago Zagui Giacomini on 21/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
@@ -48,5 +50,7 @@ object Dependencies {
     object UiTests {
         const val extJUnit = "androidx.test.ext:junit:${Version.extJUnit}"
         const val espressoCore = "androidx.test.espresso:espresso-core:${Version.espressoCore}"
+
+        operator fun invoke() = arrayOf(extJUnit, espressoCore)
     }
 }
