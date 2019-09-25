@@ -59,7 +59,7 @@
 		>
 		<argument
 			android:name="JobDetails"
-			app:argType="br.com.thiagozg.githubjobs.data.model.JobDTO"
+			app:argType="br.com.thiagozg.githubjobs.presentation.fragment.JobVO"
 			/>
 	</fragment>
 </navigation>

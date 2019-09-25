@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.data.model.JobDTO
 import br.com.thiagozg.githubjobs.presentation.bindImageView
 import kotlinx.android.synthetic.main.fragment_job_details.*
 
@@ -38,7 +37,7 @@ class JobDetailsFragment : Fragment() {
         }
     }
 
-    private fun JobDTO.bindTextsLabels(companyLabel: String) {
+    private fun JobVO.bindTextsLabels(companyLabel: String) {
         tvTitle.text = title
         tvCompanyName.text = companyLabel
         tvCompanyLocation.text = location
@@ -46,7 +45,7 @@ class JobDetailsFragment : Fragment() {
         tvWebSite.text = companyUrl
     }
 
-    private fun JobDTO.bindHtmlLabels() {
+    private fun JobVO.bindHtmlLabels() {
         val howToApplyLabel = getString(R.string.how_to_apply, howToApply)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             tvDescription.text = Html.fromHtml(description, Html.FROM_HTML_MODE_COMPACT)

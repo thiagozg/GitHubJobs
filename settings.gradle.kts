@@ -1,4 +1,4 @@
 rootProject.name = "GitHubJobs"
 include(":app")
 
-include(":data")
+include(":business:data")

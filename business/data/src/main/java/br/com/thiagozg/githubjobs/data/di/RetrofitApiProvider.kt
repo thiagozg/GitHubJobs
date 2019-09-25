@@ -1,7 +1,6 @@
-package br.com.thiagozg.githubjobs.di
+package br.com.thiagozg.githubjobs.data.di
 
 import android.app.Application
-import br.com.thiagozg.githubjobs.data.GitHubApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -14,26 +13,26 @@ import java.util.concurrent.TimeUnit
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-object GitHubApiProvider {
+object RetrofitApiProvider {
 
     private const val BASE_GITHUB_API_URL = "https://jobs.github.com"
     private const val TIMEOUT_SECONDS = 15L
 
-    fun buildServiceApi(application: Application): GitHubApi {
+    inline fun <reified T> buildServiceApi(application: Application): T {
         val httpCache = provideHttpCache(application)
         val okHttpClient = providesOkHttpClient(httpCache)
         val retrofit = providesRetrofit(okHttpClient)
-        return retrofit.create(GitHubApi::class.java)
+        return retrofit.create(T::class.java)
     }
 
-    private fun providesRetrofit(okHttpClient: OkHttpClient) = Retrofit.Builder()
+    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_GITHUB_API_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(okHttpClient)
         .build()
 
-    private fun providesOkHttpClient(cache: Cache): OkHttpClient {
+    fun providesOkHttpClient(cache: Cache): OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
 
@@ -46,7 +45,7 @@ object GitHubApiProvider {
             .build()
     }
 
-    private fun provideHttpCache(application: Application): Cache {
+    fun provideHttpCache(application: Application): Cache {
         val cacheSize = 10 * 1024 * 1024
         return Cache(application.cacheDir, cacheSize.toLong())
     }

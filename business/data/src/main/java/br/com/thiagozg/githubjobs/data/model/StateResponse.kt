@@ -1,4 +1,4 @@
-package br.com.thiagozg.githubjobs.data
+package br.com.thiagozg.githubjobs.data.model
 
 /*
  * Created by Thiago Zagui Giacomini on 29/05/2019.

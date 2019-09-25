@@ -7,8 +7,8 @@ import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.RecyclerView
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.data.model.JobDTO
 import br.com.thiagozg.githubjobs.presentation.bindImageView
+import br.com.thiagozg.githubjobs.presentation.fragment.JobVO
 import kotlinx.android.synthetic.main.item_job_result.view.*
 
 /*
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.item_job_result.view.*
  */
 class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder>() {
 
-    private val jobsResultsList = mutableListOf<JobDTO>()
+    private val jobsResultsList = mutableListOf<JobVO>()
     private var listener: JobsResultListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobResultHolder =
@@ -30,7 +30,7 @@ class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder
 
     override fun getItemCount() = jobsResultsList.count()
 
-    fun addItems(items: List<JobDTO>) {
+    fun addItems(items: List<JobVO>) {
         jobsResultsList.clear()
         jobsResultsList.addAll(items)
         notifyDataSetChanged()
@@ -42,14 +42,14 @@ class JobsResultAdapter : RecyclerView.Adapter<JobsResultAdapter.JobResultHolder
 
     inner class JobResultHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(jobDTO: JobDTO) = with(itemView) {
-            val companyLabel = resources.getString(R.string.company, jobDTO.company)
-            tvTitle.text = jobDTO.title
+        fun bind(jobVO: JobVO) = with(itemView) {
+            val companyLabel = resources.getString(R.string.company, jobVO.company)
+            tvTitle.text = jobVO.title
             tvCompanyName.text = companyLabel
-            tvCompanyLocation.text = jobDTO.location
-            ivCompanyLogo.bindImageView(companyLabel, jobDTO.companyLogo)
+            tvCompanyLocation.text = jobVO.location
+            ivCompanyLogo.bindImageView(companyLabel, jobVO.companyLogo)
             setScaleAnimation()
-            setOnClickListener { listener?.onClick(jobDTO) }
+            setOnClickListener { listener?.onClick(jobVO) }
         }
 
         private fun View.setScaleAnimation() {

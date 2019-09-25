@@ -10,8 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.data.StateSuccess
-import br.com.thiagozg.githubjobs.data.model.JobDTO
+import br.com.thiagozg.githubjobs.data.model.StateSuccess
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultAdapter
 import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultListener
@@ -42,7 +41,9 @@ class JobsResultFragment : Fragment(), JobsResultListener {
                 layoutManager = LinearLayoutManager(requireContext())
                 addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
                 jobsResultAdapter.run {
-                    addItems(it.data)
+                    // TODO: make this convertion on Domain
+                    val jobVOList = it.data.map { it.toVO() }
+                    addItems(jobVOList)
                     setListener(this@JobsResultFragment)
                 }
                 adapter = jobsResultAdapter
@@ -50,9 +51,9 @@ class JobsResultFragment : Fragment(), JobsResultListener {
         }
     }
 
-    override fun onClick(jobDTO: JobDTO) {
+    override fun onClick(jobVO: JobVO) {
         val nextAction =
-            JobsResultFragmentDirections.actionJobsResultToJobDetails(jobDTO)
+            JobsResultFragmentDirections.actionJobsResultToJobDetails(jobVO)
         findNavController().navigate(nextAction)
     }
 }
