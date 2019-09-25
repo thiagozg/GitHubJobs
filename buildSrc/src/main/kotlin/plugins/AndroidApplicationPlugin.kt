@@ -1,5 +1,7 @@
 package plugins
 
+import Version.Android.appId
+import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -12,6 +14,8 @@ class AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project): Unit = target.run {
         plugins.apply("com.android.application")
         target.run {
+            val android = extensions.getByName("android") as? BaseExtension
+            android?.defaultConfig { applicationId = appId }
             configurePlugins()
             configureAndroid()
         }

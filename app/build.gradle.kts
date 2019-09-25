@@ -1,5 +1,4 @@
 import dependencies.Dependencies
-import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 
 plugins {
     id("androidApplicationPlugin")
@@ -7,21 +6,6 @@ plugins {
     // kotlin("android")
     // kotlin("android.extensions")
     id("androidx.navigation.safeargs")
-}
-
-android {
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-
-    androidExtensions {
-        configure(delegateClosureOf<AndroidExtensionsExtension> {
-            isExperimental = true
-        })
-    }
 }
 
 dependencies {

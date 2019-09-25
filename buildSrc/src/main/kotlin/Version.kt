@@ -31,6 +31,7 @@ object Version {
 
     object Android {
         const val compileSdkVersion = 28
+        const val buildToolsVersion = "28.0.3"
         const val appId = "br.com.thiagozg.githubjobs"
         const val minSdk = 21
         const val targetSdk = 28
