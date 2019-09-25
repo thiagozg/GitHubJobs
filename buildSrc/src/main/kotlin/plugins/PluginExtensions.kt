@@ -4,6 +4,7 @@ import Version
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.delegateClosureOf
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 
 /*
@@ -11,13 +12,13 @@ import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
 fun Project.configureAndroid() {
-    extensions.getByName("android").run {
-        val android = this as? BaseExtension
-        android?.configureAndroid()
+    val android = extensions.getByName("android") as? BaseExtension
+    android?.configureAndroid()
 
-        val androidExtension = this as? AndroidExtensionsExtension
-        androidExtension?.isExperimental = true
-    }
+    val androidExtension = extensions.getByName("androidExtensions") as? AndroidExtensionsExtension
+    androidExtension?.configure(delegateClosureOf<AndroidExtensionsExtension> {
+        isExperimental = true
+    })
 }
 
 fun BaseExtension.configureAndroid() {
