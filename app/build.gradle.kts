@@ -19,6 +19,8 @@ dependencies {
         implementation(glide)
     }
 
+    implementation(Dependencies.AppModule.Network.coroutineCore)
+
     Dependencies.AppModule.Architecture.run {
         implementation(navigationKtx)
         implementation(navigationUiKtx)

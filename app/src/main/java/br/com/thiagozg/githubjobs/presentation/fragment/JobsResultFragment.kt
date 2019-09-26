@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.thiagozg.githubjobs.R
+import br.com.thiagozg.githubjobs.data.model.JobDTO
 import br.com.thiagozg.githubjobs.data.model.StateSuccess
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultAdapter

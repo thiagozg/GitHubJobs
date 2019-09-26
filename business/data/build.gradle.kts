@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":business:domain"))
     Dependencies.AppModule.Network.run {
         implementation(okhttpLogging)
         implementation(retrofit)
@@ -14,6 +15,8 @@ dependencies {
         implementation(coroutineAndroid)
         implementation(coroutineRetrofitAdapter)
     }
+
+    implementation(Dependencies.AppModule.Architecture.liveDataCore)
 
     testImplementation(Dependencies.UnitTests.jUnit)
 

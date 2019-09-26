@@ -7,7 +7,6 @@ import kotlinx.android.parcel.Parcelize
  * Created by Thiago Zagui Giacomini on 20/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-// TODO: use strategy of typealias and deprecated
 @Parcelize
 class InputQueryDTO(
     var language: String? = null,

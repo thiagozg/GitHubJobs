@@ -40,5 +40,5 @@ object Version {
     }
 
     const val gradleAndroid = "3.5.0"
-    const val kotlin = "1.3.41"
+    const val kotlin = "1.3.21"
 }

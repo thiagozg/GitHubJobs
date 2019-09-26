@@ -1,6 +1,7 @@
 package br.com.thiagozg.githubjobs.presentation.fragment
 
 import android.os.Parcelable
+import br.com.thiagozg.githubjobs.data.model.JobDTO
 import kotlinx.android.parcel.Parcelize
 
 /*
