@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import br.com.thiagozg.githubjobs.data.GitHubRepository
 import br.com.thiagozg.githubjobs.data.model.StateResponse
 import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
+import br.com.thiagozg.githubjobs.domain.jobs.GitHubRepository
 import kotlinx.coroutines.SupervisorJob
 
 /*

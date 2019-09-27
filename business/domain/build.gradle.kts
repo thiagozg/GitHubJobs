@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import dependencies.Dependencies
 
 plugins {
     `java-library`
@@ -21,4 +22,12 @@ tasks.withType<Test> {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk8"))
+
+    Dependencies.Coroutine.run {
+        implementation(core)
+        implementation(android)
+        implementation(retrofitAdapter)
+    }
+
+    implementation(Dependencies.gson)
 }

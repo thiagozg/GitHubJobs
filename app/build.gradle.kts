@@ -7,9 +7,10 @@ plugins {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":business:domain"))
     implementation(project(":business:data"))
 
-    Dependencies.AppModule.run {
+    Dependencies.run {
         implementation(appCompat)
         implementation(legacySupportV4)
         implementation(coreKtx)
@@ -19,9 +20,9 @@ dependencies {
         implementation(glide)
     }
 
-    implementation(Dependencies.AppModule.Network.coroutineCore)
+    implementation(Dependencies.Coroutine.core)
 
-    Dependencies.AppModule.Architecture.run {
+    Dependencies.Architecture.run {
         implementation(navigationKtx)
         implementation(navigationUiKtx)
         implementation(viewModel)
@@ -29,7 +30,7 @@ dependencies {
         implementation(liveDataCore)
     }
 
-    Dependencies.AppModule.Koin.run {
+    Dependencies.Koin.run {
         implementation(core)
         implementation(android)
         implementation(androidScope)
@@ -41,4 +42,5 @@ dependencies {
     Dependencies.UiTests().forEach {
         androidTestImplementation(it)
     }
+
 }

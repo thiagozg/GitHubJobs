@@ -1,6 +1,6 @@
 package br.com.thiagozg.githubjobs.data
 
-import br.com.thiagozg.githubjobs.model.JobDTO
+import br.com.thiagozg.githubjobs.data.model.JobDTO
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

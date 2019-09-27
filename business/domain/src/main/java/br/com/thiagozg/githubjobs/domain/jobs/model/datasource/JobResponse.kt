@@ -1,4 +1,4 @@
-package br.com.thiagozg.githubjobs.data.model
+package br.com.thiagozg.githubjobs.domain.model.datasource
 
 import com.google.gson.annotations.SerializedName
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-class JobDTO(
+class JobResponse(
     @SerializedName("company")
     val company: String,
     @SerializedName("company_logo")
