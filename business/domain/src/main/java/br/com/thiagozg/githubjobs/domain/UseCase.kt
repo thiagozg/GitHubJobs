@@ -1,7 +1,7 @@
 package br.com.thiagozg.githubjobs.domain
 
 import br.com.thiagozg.githubjobs.domain.jobs.model.business.StateBusiness
-import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
+import com.sun.net.httpserver.Authenticator
 
 /*
  * Created by Thiago Zagui Giacomini on 24/05/2019.
@@ -9,6 +9,8 @@ import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
  */
 abstract class UseCase<in Params, out BO> {
 
-    abstract suspend fun run(params: Params): StateBusiness<List<JobBO>>
+    abstract suspend fun run(params: Params): StateBusiness<BO>
+
+    suspend operator fun invoke(params: Params) = run(params)
 
 }

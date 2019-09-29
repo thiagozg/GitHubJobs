@@ -1,29 +1,44 @@
 package br.com.thiagozg.githubjobs.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.thiagozg.githubjobs.data.GitHubRepository
-import br.com.thiagozg.githubjobs.data.model.StateResponse
+import androidx.lifecycle.viewModelScope
 import br.com.thiagozg.githubjobs.data.model.InputQueryDTO
-import br.com.thiagozg.githubjobs.domain.jobs.GitHubRepository
-import kotlinx.coroutines.SupervisorJob
+import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
+import br.com.thiagozg.githubjobs.domain.jobs.usecase.FetchJobsUseCase
+import br.com.thiagozg.githubjobs.presentation.fragment.JobVO
+import br.com.thiagozg.githubjobs.presentation.fragment.toVO
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /*
  * Created by Thiago Zagui Giacomini on 24/05/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg
  */
-class MainViewModel(private val repository: GitHubRepository) : ViewModel() {
+class MainViewModel(private val fetchJobsUseCase: FetchJobsUseCase) : ViewModel() {
 
-    val jobsData = MutableLiveData<StateResponse>()
-
-    private val viewModelJob = SupervisorJob()
+    private val _jobsLiveData = MutableLiveData<JobsResultState>()
+    val jobsLiveData: LiveData<JobsResultState> get() = _jobsLiveData
 
     fun fetchJobs(inputQueryDTO: InputQueryDTO) {
-        repository.fetchJobs(inputQueryDTO, jobsData, viewModelJob)
+        viewModelScope.launch(Dispatchers.IO) {
+            _jobsLiveData.postValue(JobsResultState.Loading)
+            val params = inputQueryDTO.run {
+                FetchJobsUseCase.Params(language, location)
+            }
+            val stateBusiness = fetchJobsUseCase(params)
+            val jobsResultState = stateBusiness.fold<List<JobBO>, JobsResultState>(
+                { JobsResultState.Success(it.map { bo -> bo.toVO() }) },
+                { JobsResultState.Error }
+            )
+            _jobsLiveData.postValue(jobsResultState)
+        }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
+    sealed class JobsResultState {
+        data class Success(val jobsListVO: List<JobVO>) : JobsResultState()
+        object Loading : JobsResultState()
+        object Error : JobsResultState()
     }
 }

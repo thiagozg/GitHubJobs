@@ -15,7 +15,7 @@ object Version {
     const val navigationFragmentKtx = "2.0.0"
     const val navigationUiKtx = "2.0.0"
     const val navigationSafeArgs = "1.0.0"
-    const val architecture = "2.0.0"
+    const val architecture = "2.2.0-alpha01"
 
     const val okHttp = "4.2.0"
     const val retrofit = "2.6.1"

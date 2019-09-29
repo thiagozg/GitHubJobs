@@ -16,7 +16,6 @@ dependencies {
     Dependencies.Coroutine.run {
         implementation(core)
         implementation(android)
-        implementation(retrofitAdapter)
     }
 
     implementation(Dependencies.Architecture.liveDataCore)
