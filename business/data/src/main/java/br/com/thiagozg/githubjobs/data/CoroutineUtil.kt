@@ -21,14 +21,29 @@ fun <T : Any> coroutineIoUi(
     onError: (exception: Exception) -> Unit
 ) = try {
     CoroutineScope(coroutineContext).launch {
-        val deferred = (CoroutineScope(Dispatchers.IO).async rq@{
+        val asyncRequest = CoroutineScope(Dispatchers.IO).async rq@ {
             return@rq request()
-        }.await())?.await()
+        }.await()
+        val deferred = asyncRequest?.await()
+
         deferred?.let {
-            if (it.isSuccessful) onSuccess(it.body())
-            else onError(IllegalAccessException("Wasn't able to receive a success response."))
-        } ?: onError(JsonParseException("Different response object than expected."))
+            handleSuccessError(it, onSuccess, onError)
+        } ?: throwsJsonParseException(onError)
     }
 } catch (ex: Exception) {
     onError(ex)
+}
+
+private fun <T : Any> handleSuccessError(
+    response: Response<T>,
+    onSuccess: (T?) -> Unit,
+    onError: (exception: Exception) -> Unit
+) = if (response.isSuccessful) {
+    onSuccess(response.body())
+} else {
+    onError(IllegalAccessException("Wasn't able to receive a success response."))
+}
+
+private fun throwsJsonParseException(onError: (exception: Exception) -> Unit) {
+    onError(JsonParseException("Different response object than expected."))
 }

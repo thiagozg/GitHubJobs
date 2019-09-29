@@ -2,7 +2,8 @@ package br.com.thiagozg.githubjobs.domain.jobs.usecase
 
 import br.com.thiagozg.githubjobs.domain.UseCase
 import br.com.thiagozg.githubjobs.domain.jobs.GitHubRepository
-import br.com.thiagozg.githubjobs.domain.jobs.model.business.JobBO
+import br.com.thiagozg.githubjobs.domain.jobs.model.business.StateBusiness
+import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
 
 /*
  * Created by Thiago Zagui Giacomini on 25/09/2019.
@@ -10,11 +11,13 @@ import br.com.thiagozg.githubjobs.domain.jobs.model.business.JobBO
  */
 class FetchJobsUseCase(
     private val gitHubRepository: GitHubRepository
-) : UseCase<JobBO, FetchJobsUseCase.Params>() {
+) : UseCase<FetchJobsUseCase.Params, List<JobBO>>() {
 
-    override suspend fun run(params: Params): JobBO {
-        gitHubRepository.fetchJobs(params.language, params.location)
-
+    override suspend fun run(params: Params): StateBusiness<List<JobBO>> = try {
+        val jobsBoList = gitHubRepository.fetchJobsAsync(params.language, params.location)
+        StateBusiness.success(jobsBoList)
+    } catch (e: Exception) {
+        StateBusiness.error(e)
     }
 
     inner class Params(

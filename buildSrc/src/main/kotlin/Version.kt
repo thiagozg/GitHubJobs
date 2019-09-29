@@ -17,10 +17,10 @@ object Version {
     const val navigationSafeArgs = "1.0.0"
     const val architecture = "2.0.0"
 
-    const val okHttp = "3.6.0"
-    const val retrofit = "2.5.0"
+    const val okHttp = "4.2.0"
+    const val retrofit = "2.6.1"
 
-    const val coroutineCore = "1.2.1"
+    const val coroutineCore = "1.3.1"
     const val coroutineRetrofitAdapter = "0.9.2"
 
     const val koin = "2.0.1"

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_input_language.*
 
 /*
  * Created by Thiago Zagui Giacomini on 20/05/2019.
- * See thiagozg on GitHub (https://github.com/thiagozg)
+ * See thiagozg on GitHub https://github.com/thiagozg
  */
 class InputLanguageFragment : Fragment() {
 

@@ -1,7 +1,7 @@
 package br.com.thiagozg.githubjobs.presentation.fragment
 
 import android.os.Parcelable
-import br.com.thiagozg.githubjobs.data.model.JobDTO
+import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
 import kotlinx.android.parcel.Parcelize
 
 /*
@@ -20,13 +20,15 @@ class JobVO(
     val title: String
 ) : Parcelable
 
-fun JobDTO.toVO() = JobVO(
-    company,
-    companyLogo,
-    companyUrl,
-    createdAt,
-    description,
-    howToApply,
-    location,
-    title
-)
+fun JobBO.toVO(): JobVO = companyBO.run {
+    JobVO(
+        name,
+        logo,
+        url,
+        createdAt,
+        description,
+        howToApply,
+        location,
+        title
+    )
+}

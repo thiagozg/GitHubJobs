@@ -1,8 +1,6 @@
 package br.com.thiagozg.githubjobs.domain.jobs
 
-import br.com.thiagozg.githubjobs.domain.model.datasource.JobResponse
-import kotlinx.coroutines.Deferred
-import retrofit2.Response
+import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
 
 /*
  * Created by Thiago Zagui Giacomini on 26/09/2019.
@@ -10,9 +8,9 @@ import retrofit2.Response
  */
 interface GitHubRepository {
 
-    fun fetchJobs(
+    suspend fun fetchJobsAsync(
         language: String?,
         location: String?
-    ): Deferred<Response<List<JobResponse>>>
+    ): List<JobBO>
 
 }
