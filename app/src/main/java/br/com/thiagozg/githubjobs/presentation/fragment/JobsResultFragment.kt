@@ -10,8 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.thiagozg.githubjobs.R
-import br.com.thiagozg.githubjobs.data.model.JobDTO
-import br.com.thiagozg.githubjobs.data.model.StateSuccess
 import br.com.thiagozg.githubjobs.presentation.MainViewModel
 import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultAdapter
 import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultListener
@@ -36,14 +34,16 @@ class JobsResultFragment : Fragment(), JobsResultListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val jobsResultList = viewModel.jobsData.value as? StateSuccess<List<JobDTO>>
-        jobsResultList?.let {
+        createJobsList()
+    }
+
+    private fun createJobsList() {
+        val jobsResultList = (viewModel.jobsLiveData.value as? MainViewModel.JobsResultState.Success)?.jobsListVO
+        jobsResultList?.let { jobVOList ->
             rvJobsResults.run {
                 layoutManager = LinearLayoutManager(requireContext())
                 addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
                 jobsResultAdapter.run {
-                    // TODO: make this convertion on Domain
-                    val jobVOList = it.data.map { it.toVO() }
                     addItems(jobVOList)
                     setListener(this@JobsResultFragment)
                 }

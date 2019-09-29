@@ -1,6 +1,9 @@
 package br.com.thiagozg.githubjobs.presentation
 
 import android.widget.ImageView
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import br.com.thiagozg.githubjobs.R
 import com.bumptech.glide.Glide
 
@@ -18,4 +21,14 @@ fun ImageView.bindImageView(
         .centerCrop()
         .placeholder(R.color.primaryLight)
         .into(this)
+}
+
+inline fun <T : Any> LiveData<T>.observeNonNull(
+    lifecycleOwner: LifecycleOwner,
+    crossinline onChanged: (T) -> Unit
+) {
+    observe(lifecycleOwner, Observer {
+        it ?: return@Observer
+        onChanged.invoke(it)
+    })
 }
