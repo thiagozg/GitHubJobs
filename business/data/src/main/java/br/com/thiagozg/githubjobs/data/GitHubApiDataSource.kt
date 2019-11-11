@@ -1,6 +1,6 @@
 package br.com.thiagozg.githubjobs.data
 
-import br.com.thiagozg.githubjobs.domain.model.datasource.JobResponse
+import br.com.thiagozg.githubjobs.domain.jobs.model.datasource.JobResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

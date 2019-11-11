@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingStart="18dp"
+	android:paddingEnd="18dp"
+	android:paddingBottom="6dp"
+	android:paddingTop="8dp"
+	>
+	
+	<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		tools:srcCompat="@tools:sample/avatars"
+		android:id="@+id/ivCompanyLogo"
+		android:transitionName="@string/transition_image"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		android:importantForAccessibility="no"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvTitle"
+		android:transitionName="@string/transition_title"
+		app:layout_constraintStart_toEndOf="@+id/ivCompanyLogo"
+		app:layout_constraintTop_toTopOf="@+id/ivCompanyLogo"
+		android:layout_marginStart="24dp"
+		android:layout_marginTop="2dp"
+		android:textStyle="bold"
+		android:textSize="18sp"
+		android:textColor="@color/primaryText"
+		app:layout_constraintHorizontal_bias="0"
+		android:maxLines="1"
+		android:maxEms="12"
+		android:ellipsize="end"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="Senior Android Developer huehuekkkk"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvCompanyName"
+		android:transitionName="@string/transition_company_name"
+		app:layout_constraintStart_toEndOf="@+id/ivCompanyLogo"
+		app:layout_constraintTop_toBottomOf="@id/tvTitle"
+		android:layout_marginTop="4dp"
+		android:layout_marginStart="24dp"
+		android:textStyle="bold"
+		android:textSize="16sp"
+		android:textColor="@color/secondaryText"
+		app:layout_constraintHorizontal_bias="0"
+		android:maxLines="1"
+		android:maxEms="13"
+		android:ellipsize="end"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="Company Name blablablabla huehuehueue"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvCompanyLocation"
+		android:transitionName="@string/transition_location"
+		app:layout_constraintStart_toEndOf="@+id/ivCompanyLogo"
+		app:layout_constraintTop_toBottomOf="@id/tvCompanyName"
+		android:layout_marginTop="4dp"
+		android:layout_marginStart="24dp"
+		android:textStyle="bold"
+		android:textSize="16sp"
+		android:textColor="@color/secondaryText"
+		app:layout_constraintHorizontal_bias="0"
+		android:maxLines="1"
+		android:maxEms="13"
+		android:ellipsize="end"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="Brasil - São Paulo huehuehuehueue"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvHowToApply"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/ivCompanyLogo"
+		android:layout_marginTop="12dp"
+		android:textSize="16sp"
+		android:textColor="@color/primaryText"
+		android:autoLink="web"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="How to apply: www.apply.com.br"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvDescriptionLabel"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/tvHowToApply"
+		android:layout_marginTop="12dp"
+		android:text="@string/description"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		android:textColor="@color/primaryText"
+		app:layout_constraintEnd_toEndOf="parent"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		android:id="@+id/tvDescription"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/tvDescriptionLabel"
+		app:layout_constraintBottom_toTopOf="@id/tvWebSite"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="4dp"
+		android:textSize="16sp"
+		android:textColor="@color/secondaryText"
+		android:scrollbars="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvWebSite"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintBottom_toTopOf="@id/tvCreatedAt"
+		android:layout_marginBottom="6dp"
+		android:textSize="14sp"
+		android:autoLink="web"
+		android:textColor="@color/primaryText"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="www.site.com.br"
+		/>
+	
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvCreatedAt"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintVertical_bias="1"
+		android:textSize="14sp"
+		android:textColor="@color/primaryText"
+		android:maxLines="1"
+		android:ellipsize="end"
+		app:layout_constraintEnd_toEndOf="parent"
+		tools:text="Created at 10/10/2019"
+		/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

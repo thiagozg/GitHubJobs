@@ -13,9 +13,8 @@ class GitHubRepositoryImpl(private val gitHubApi: GitHubApiDataSource) : GitHubR
     override suspend fun fetchJobsAsync(
         language: String?,
         location: String?
-    ): List<JobBO> {
-        val jobsResponseList = gitHubApi.fetchJobsAsync(language, location)
-        return jobsResponseList.map { it.toBO() }
-    }
+    ): List<JobBO> = gitHubApi
+        .fetchJobsAsync(language, location)
+        .map { it.toBO() }
 
 }

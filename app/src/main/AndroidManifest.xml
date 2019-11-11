@@ -13,7 +13,7 @@
       android:launchMode="singleTop"
       android:theme="@style/AppTheme"
       android:name=".MainApplication">
-        <activity android:name=".presentation.MainActivity">
+        <activity android:name=".jobsresults.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 

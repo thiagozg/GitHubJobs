@@ -18,7 +18,7 @@ object Version {
     const val architecture = "2.2.0-alpha01"
 
     const val okHttp = "4.2.0"
-    const val retrofit = "2.6.1"
+    const val retrofit = "2.6.2"
 
     const val coroutineCore = "1.3.1"
     const val coroutineRetrofitAdapter = "0.9.2"

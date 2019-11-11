@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools" android:id="@+id/graph"
+	app:startDestination="@id/input_language">
+
+	<fragment
+		android:id="@+id/input_language"
+		android:name="br.com.thiagozg.githubjobs.jobsresults.fragment.InputLanguageFragment"
+		tools:layout="@layout/fragment_input_language"
+		>
+		<action
+			android:id="@+id/actionToLocationFragment"
+			app:destination="@id/input_location"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
+			app:launchSingleTop="true"
+			app:popUpTo="@+id/input_language"
+			/>
+	</fragment>
+	<fragment
+		android:id="@+id/input_location"
+		android:name="br.com.thiagozg.githubjobs.jobsresults.fragment.InputLocationFragment"
+		tools:layout="@layout/fragment_input_location"
+		>
+		<action
+			android:id="@+id/actionToJobsResultFragment"
+			app:destination="@id/jobs_result"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popUpTo="@+id/input_location"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
+			/>
+		<argument
+			android:name="InputQueryDTO"
+			app:argType="br.com.thiagozg.githubjobs.jobsresults.fragment.models.InputQueryDTO"
+			/>
+	</fragment>
+	<fragment
+		android:id="@+id/jobs_result"
+		android:name="br.com.thiagozg.githubjobs.jobsresults.fragment.JobsResultFragment">
+		<action
+			android:id="@+id/action_jobs_result_to_job_details"
+			app:destination="@id/job_details"
+			app:enterAnim="@anim/enter_from_right"
+			app:exitAnim="@anim/exit_to_left"
+			app:popEnterAnim="@anim/enter_from_left"
+			app:popExitAnim="@anim/exit_to_right"
+			app:popUpTo="@+id/jobs_result" />
+	</fragment>
+	<fragment
+		android:id="@+id/job_details"
+		android:name="br.com.thiagozg.githubjobs.jobsresults.fragment.JobDetailsFragment">
+		<argument
+			android:name="JobDetails"
+			app:argType="br.com.thiagozg.githubjobs.jobsresults.fragment.models.JobVO" />
+	</fragment>
+</navigation>

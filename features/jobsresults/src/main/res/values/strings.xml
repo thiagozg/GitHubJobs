@@ -1,0 +1,18 @@
+<resources>
+	<string name="app_description">This App was constructed with:\n\n- Navigation Component\n- Koin\n-Coroutine\n- GitHub API\n- Gradle Kotlin</string>
+	<string name="input_language_label">Language</string>
+	<string name="input_location_label">Location</string>
+	<string name="continue_verb">continuar</string>
+	<string name="home">Home</string>
+	<string name="error_api_message">unknown error, please try again later.</string>
+	<string name="title_jobs_results">Jobs Results</string>
+	<string name="company">Company %s</string>
+	<string name="created_at">Created at %s</string>
+	<string name="how_to_apply">How to apply: %s</string>
+	<string name="description">Description:</string>
+
+	<string name="transition_image">transition_image</string>
+	<string name="transition_title">transition_title</string>
+	<string name="transition_company_name">transition_company_name</string>
+	<string name="transition_location">transition_location</string>
+</resources>

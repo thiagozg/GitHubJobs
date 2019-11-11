@@ -18,13 +18,6 @@ class FetchJobsUseCase(
         gitHubRepository.fetchJobsAsync(params.language, params.location)
     }
 
-//    try {
-//        val jobsBoList = gitHubRepository.fetchJobsAsync(params.language, params.location)
-//        StateBusiness.success(jobsBoList)
-//    } catch (e: Exception) {
-//        StateBusiness.error(e)
-//    }
-
     class Params(
         val language: String?,
         val location: String?

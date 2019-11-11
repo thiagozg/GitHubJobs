@@ -1,9 +1,9 @@
 package br.com.thiagozg.githubjobs.di
 
-import br.com.thiagozg.githubjobs.RetrofitApiProvider
-import br.com.thiagozg.githubjobs.data.GitHubRepository
-import br.com.thiagozg.githubjobs.presentation.MainViewModel
-import br.com.thiagozg.githubjobs.presentation.adapter.JobsResultAdapter
+import br.com.thiagozg.githubjobs.data.GitHubRepositoryImpl
+import br.com.thiagozg.githubjobs.data.di.RetrofitApiProvider
+import br.com.thiagozg.githubjobs.jobsresults.MainViewModel
+import br.com.thiagozg.githubjobs.jobsresults.adapter.JobsResultAdapter
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -13,9 +13,9 @@ import org.koin.dsl.module
  */
 val mainModule = module {
 
-    single { RetrofitApiProvider.buildServiceApi(androidApplication()) }
+    single { RetrofitApiProvider.buildServiceApi<RetrofitApiProvider>(androidApplication()) }
 
-    single { GitHubRepository(get()) }
+    single { GitHubRepositoryImpl(get()) }
 
     factory { MainViewModel(get()) }
 

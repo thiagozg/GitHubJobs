@@ -13,6 +13,10 @@
             <option value="$PROJECT_DIR$/business" />
             <option value="$PROJECT_DIR$/business/data" />
             <option value="$PROJECT_DIR$/business/domain" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/jobsresults" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/core" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

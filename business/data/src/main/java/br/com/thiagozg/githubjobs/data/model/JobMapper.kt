@@ -2,7 +2,7 @@ package br.com.thiagozg.githubjobs.data.model
 
 import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.CompanyBO
 import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.JobBO
-import br.com.thiagozg.githubjobs.domain.model.datasource.JobResponse
+import br.com.thiagozg.githubjobs.domain.jobs.model.datasource.JobResponse
 
 /*
  * Created by Thiago Zagui Giacomini on 28/09/2019.

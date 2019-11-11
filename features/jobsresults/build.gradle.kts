@@ -1,18 +1,24 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import dependencies.Dependencies
 
 plugins {
-    id("androidApplicationPlugin")
-    id("androidx.navigation.safeargs")
+    id("androidLibraryPlugin")
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":libraries:core"))
     implementation(project(":business:domain"))
-    implementation(project(":business:data"))
-    implementation(project(":features:jobsresults"))
 
-    // FIXME: remove unused dependencies
     Dependencies.run {
         implementation(appCompat)
         implementation(legacySupportV4)
@@ -23,14 +29,17 @@ dependencies {
         implementation(glide)
     }
 
-    implementation(Dependencies.Coroutine.core)
-
     Dependencies.Architecture.run {
         implementation(navigationKtx)
         implementation(navigationUiKtx)
         implementation(viewModel)
         implementation(viewModelKtx)
         implementation(liveDataCore)
+    }
+
+    Dependencies.Coroutine.run {
+        implementation(core)
+        implementation(android)
     }
 
     Dependencies.Koin.run {
@@ -45,5 +54,4 @@ dependencies {
     Dependencies.UiTests().forEach {
         androidTestImplementation(it)
     }
-
 }

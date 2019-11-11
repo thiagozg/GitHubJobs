@@ -1,7 +1,5 @@
 package br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs
 
-import br.com.thiagozg.githubjobs.domain.jobs.model.business.jobs.CompanyBO
-
 /*
  * Created by Thiago Zagui Giacomini on 25/09/2019.
  * See thiagozg on GitHub: https://github.com/thiagozg

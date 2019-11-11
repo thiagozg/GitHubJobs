@@ -1,4 +1,4 @@
-package br.com.thiagozg.githubjobs.domain.model.datasource
+package br.com.thiagozg.githubjobs.domain.jobs.model.datasource
 
 import com.google.gson.annotations.SerializedName
 
