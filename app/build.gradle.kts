@@ -2,7 +2,6 @@ import dependencies.Dependencies
 
 plugins {
     id("androidApplicationPlugin")
-    id("androidx.navigation.safeargs")
 }
 
 dependencies {

@@ -20,6 +20,12 @@ dependencies {
 
     implementation(Dependencies.Architecture.liveDataCore)
 
+    Dependencies.Koin.run {
+        implementation(core)
+        implementation(android)
+        implementation(androidScope)
+    }
+
     testImplementation(Dependencies.UnitTests.jUnit)
 
     Dependencies.UiTests().forEach {

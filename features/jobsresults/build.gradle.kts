@@ -3,6 +3,7 @@ import dependencies.Dependencies
 
 plugins {
     id("androidLibraryPlugin")
+    id("androidx.navigation.safeargs")
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8

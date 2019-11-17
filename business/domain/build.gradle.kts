@@ -28,5 +28,7 @@ dependencies {
         implementation(android)
     }
 
+    implementation(Dependencies.Koin.core)
+
     implementation(Dependencies.gson)
 }
