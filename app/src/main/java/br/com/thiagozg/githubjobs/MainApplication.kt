@@ -1,7 +1,7 @@
 package br.com.thiagozg.githubjobs
 
 import android.app.Application
-import br.com.thiagozg.githubjobs.di.FeaturesModules
+import br.com.thiagozg.githubjobs.jobsresults.di.provideMainModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,6 +18,6 @@ class MainApplication : Application() {
             androidLogger()
             androidContext(this@MainApplication)
         }
-        FeaturesModules.mainFeature()
+        provideMainModules()
     }
 }

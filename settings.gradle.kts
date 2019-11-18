@@ -3,7 +3,6 @@ include(":app")
 
 include(":libraries:core")
 
-include(":business:domain")
-include(":business:data")
-
-include(":features:jobsresults")
+include(":features:main:jobsresults")
+include(":features:main:domain")
+include(":features:main:data")
